@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+header {
+
+  background: #161E2A;
+  color: #FAFAFA;
+  padding: 200px 0;
+  position: relative;
+
+}
+header::before {
+      content: "";
+      background-image: url("./coverphoto.png")!important;
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.35;
+}
+.orar{
+ margin: 30px auto;
+ width: 100%;
+}
+
+.orar {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.orar td, .orar th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width:100px;
+}
+
+.orar tr:nth-child(even){background-color: #f2f2f2;}
+
+.orar tr:hover {background-color: #ddd;}
+
+.orar th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #161E2A;
+  color: white;
+}
+.topPNL{
+  font-family: "Indie Flower";
+  font-size: 350%;
+}
+h2 {
+  font-size: 30px;
+}
+
+.small-text {
+  color: #CCC; /*grayish color*/
+  font-size: 125%;
+  font-weight:bold;
+
+}
+
+.settings {
+    width: 30px;
+}
+
+.button {
+  background: #f55442;
+  color: #FAFAFA;
+  padding: 12px 25px;
+  border-radius: 30px;
+  float: right;
+  position: relative;
+  bottom: 11px;
+}
+
+section {
+  padding: 30px;
+}
+
+.box {
+  color: #FAFAFA;
+    width: 70%;
+    margin: 35px 0;
+    border-radius: 30px;
+}
+
+.box-left {
+    width: 40%;
+    float: left;
+    background: #161E2A;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.box-right {
+    width: 40%;
+    float: right;
+}
+
+.box img {
+  width: 100%;
+  border-radius: 30px;
+  border: 3px solid #161E2A;
+}
+
+.h1 {
+margin: 100px 0;
+}
+
+h3 {
+  float: right;
+}
+
+ul {
+  margin: 0; /*by default browser adds slight margin*/
+  background: #101010;
+  padding: 25px;
+}
+
+li {
+  display: inline; /*to make elements appear in the same row*/
+}
+
+li a {
+  color: #FAFAFA;
+  text-decoration: none;
+  padding-right: 15px;
+  font-weight: bold;
+}
+
+footer {
+  background: #161E2A;
+  color: #FAFAFA;
+  padding: 30px;
+  display: block;
+}
+
+.pnl{
+  font-family: 'Indie Flower', cursive;
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+}
+
+.announcements {
+  width: 700px;
+  margin: 0 auto;
+  /* qenderzim */
+}
+
+.ann {
+  text-align: left;
+  padding-bottom: 30px;
+  line-height: 25px;
+}
+
+.hann {
+  margin-top: 100px;
+  font-size: 150%;
+  border-left: 3px solid blue;
+}
+
+.holder {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -12px;
+    margin-left: -12px;
+    margin-top: -12px;
+}
+
+.review {
+  padding: 30px;
+  margin: 12px;
+  width: 368px;
+  max-width: 368px;
+  flex-grow: 1;
+  background-color: #FAFAFA;
+      box-shadow: 0 20px 48px rgba(22,30,42,0.16);
+}
