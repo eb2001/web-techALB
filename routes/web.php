@@ -1,6 +1,9 @@
 <?php
 
 Route::redirect('/', '/login');
+//Language
+Route::get('lang/{lang}','LanguageController@switchLang')->name('lang.switch');
+Route::get('/languageDemo', 'App\Http\Controllers\HomeController@languageDemo');
 
 Route::get('/index', function () {
     return view('index');
@@ -21,5 +24,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+
 
 });

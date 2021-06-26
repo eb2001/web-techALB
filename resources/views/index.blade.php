@@ -12,22 +12,30 @@
 <body>
 <nav> <!-- navigation bar on top -->
     <ul>
-        <li><a href="{{ route('index') }}">Home</a></li>
-      {{--  <li><a href="./announcements.html">Announcements</a></li>
-        <li><a href="./staff.html">Staff</a></li>
-        <li><a href="./">Personal Information</li>--}}
+        <li><a href="{{ route('index') }}">{{__('messages.home')}}</a></li>
 
+        @if (Auth::check())
+            <li><a href="{{ route('login')}}">{{__('messages.personalinfo')}}</a></li>
+        @endif
+
+        <li class="nav-item dropdown">
+            <span class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              @foreach (Config::get('languages') as $lang => $language)
+                @if ($lang != App::getLocale())
+                  <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                @endif
+              @endforeach
+            </span>
+        </li>
         <li><a href="{{ route('login') }}">
-        <span class="button">
-          <i class="fas fa-cogs"></i> Change Language
-        </span>
+
                 @if (Auth::check())
                     <span class="button" >
         {{\Illuminate\Support\Facades\Auth::user()->name}}
         </span>
                 @else
                     <span class="button" >
-          Sign In
+          {{__('messages.log')}}
         </span>
                 @endif
 
@@ -39,19 +47,19 @@
 <header>
     <center>
         <h1 class="topPNL">Lorem Wellness Centre</h1>
-        <span class="small-text">The most professional staff for the kindest of people.</span>
+        <span class="small-text">{{__('messages.welcome')}}</span>
     </center>
 </header>
 
 
 <section>
     <center>
-        <h2>What we offer</h2>
-        <span class="small-text">The best quality for a realistic price.</span>
+        <h2>{{__('messages.offer')}}</h2>
+        <span class="small-text">{{__('messages.brag')}}</span>
         <div class="box">
             <div class="box-left">
-                <h2>Opened by the community, for the community.</h2>
-                <p>The #1 fitness centre offers a 10% discount to all neighborhood residents.</p>
+                <h2>{{__('messages.open')}}</h2>
+                <p>{{__('messages.no1')}}</p>
             </div>
             <div class="box-right">
                 <img src="{{asset('homepage/alumni.jpg')}}" height="250" alt="alumniPE">
@@ -60,8 +68,8 @@
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="box">
             <div class="box-left">
-                <h2>Look up the latest announcement by staff</h2>
-                <p>Never miss a discount again, never miss a class again!</p>
+                <h2>{{__('messages.ann')}}</h2>
+                <p>{{__('messages.never')}}</p>
             </div>
             <div class="box-right">
                 <img src="{{asset('homepage/ann1.jpeg')}}" height="250" alt="arditi2019">
@@ -71,8 +79,8 @@
 
         <div class="box">
             <div class="box-left">
-                <h2>Help us grow!</h2>
-                <p>Bring your friend and earn a 50% discount.</p>
+                <h2>{{__('messages.helpus')}}</h2>
+                <p>B{{__('messages.bringfriend')}}</p>
             </div>
             <div class="box-right">
                 <img src="{{asset('homepage/mesim2.jpeg')}}" height="250" alt="teaching">
@@ -84,27 +92,27 @@
 <hr>
 <section>
     <center>
-        <h2>Updated Reviews</h2>
+        <h2>{{__('messages.reviews')}}</h2>
         <div class="holder">
             <div class="review">
                 <center>
                     <img src="{{asset('homepage/almiri.jpeg')}}" alt="almiri" style="border-radius: 50px;" width="80" height="80">
                 </center>
-                <span>The gym is nice and keeps improving. The staff cares about us and has become family.</span>
+                <span>{{__('messages.almir')}}</span>
                 <br><br> <b>Almir Gjata</b>
             </div>
             <div class="review">
                 <center>
                     <img src="{{asset('homepage/teuta.jpg')}}" alt="toto" style="border-radius: 50px;" width="80" height="80">
                 </center>
-                <span>It's not the staffs fault or anything wrong with the facility, this gym is amazing but I am too lazy to come.<span>
+                <span>{{__('messages.toto')}}<span>
               <br><br> <b>Teuta Bracaj </b>
             </div>
             <div class="review">
                 <center>
                     <img src="{{asset('homepage/marjo.jpg')}}" alt="marjo" style="border-radius: 50px;" width="80" height="80">
                 </center>
-                <span>The personal training here really changed my life for the better. This place is my second house now!</span>
+                <span>{{__('messages.rev3')}}<span>
                 <br><br> <b> Marjo Mallisti</b>
             </div>
         </div>
@@ -114,7 +122,7 @@
 <footer>
     <h2 class="pnl"><center><i>LOREM WELLNESS CENTER TIRANA</i></center></h2>
     © 2021 Lorem Wellness Center, all rights reserved
-    <span style="float: right;"><b>Latest Announcement: </b>Remember training will only get harder if you start missing your classes ;) <br><i style="float:right">-The Staff</i></span>
+    <span style="float: right;"><b>{{__('messages.latestann')}}</b>{{__('messages.dummy')}}<br><i style="float:right">-The Staff</i></span>
 </footer>
 </body>
 </html>
