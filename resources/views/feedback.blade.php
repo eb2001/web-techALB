@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Lorem Wellness Center</title>
+    <title>Lorem Feedback</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('homepage/master.css') }}">
@@ -15,13 +15,8 @@
         <li><a href="{{ route('index') }}">{{__('messages.home')}}</a></li>
 
         @if (Auth::check())
-            <li>
-              <a href="{{ route('login')}}">{{__('messages.personalinfo')}}</a>
-            </li>
+            <li><a href="{{ route('login')}}">{{__('messages.personalinfo')}}</a></li>
         @endif
-        <li>
-          <a href="{{ route('feedback')}}">Feedback</a>
-        </li>
 
         <li class="nav-item dropdown">
             <span class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -56,45 +51,38 @@
     </center>
 </header>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- I should have replaced these with a upper margin on the below element maybe, but I remembered about these br's very late -->
+<!-- end of header! feedback function below-->
 
 <section>
-    <center>
-        <h2>{{__('messages.offer')}}</h2>
-        <span class="small-text">{{__('messages.brag')}}</span>
-        <div class="box">
-            <div class="box-left">
-                <h2>{{__('messages.open')}}</h2>
-                <p>{{__('messages.no1')}}</p>
-            </div>
-            <div class="box-right">
-                <img src="{{asset('homepage/alumni.jpg')}}" height="250" alt="alumniPE">
-            </div>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <div class="box">
-            <div class="box-left">
-                <h2>{{__('messages.ann')}}</h2>
-                <p>{{__('messages.never')}}</p>
-            </div>
-            <div class="box-right">
-                <img src="{{asset('homepage/ann1.jpeg')}}" height="250" alt="arditi2019">
-            </div>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- Zevendso me vone-->
+  <center>
+    <?php
+    if ( isset( $_GET['submit2'] ) ){
 
-        <div class="box">
-            <div class="box-left">
-                <h2>{{__('messages.helpus')}}</h2>
-                <p>B{{__('messages.bringfriend')}}</p>
-            </div>
-            <div class="box-right">
-                <img src="{{asset('homepage/mesim2.jpeg')}}" height="250" alt="teaching">
-            </div>
-        </div>
-    </center>
+   $to = "eroldb4@gmail.com"; // 
+   $subject = "Feedback for the Website!";
+   $body = "A user has entered feedback on the site!\n";
+   $body .= "Their feedback is:\n\n";
+   $body .= $feedback ?? '';
+   print "Thanks for your feedback!";
+   mail($to, $subject, $body);
+    }
+   else {
+   ?>
+  <form action="feedback" method="GET">
+  <h2>1Please Send us your Feedback</h2>
+  <textarea cols=35 rows=15 name="feedback">
+  </textarea>
+  <br>
+  <input type="submit" name="submit2" value="Submit">
+  </form>
+ <?php
+ }
+?>
+  </center>
 </section>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- I should have replaced these with a upper margin on the below element maybe, but I remembered about these br's very late -->
 <hr>
+
 <section>
     <center>
         <h2>{{__('messages.reviews')}}</h2>
@@ -122,7 +110,6 @@
             </div>
         </div>
     </center>
-
 </section>
 <footer>
     <h2 class="pnl"><center><i>LOREM WELLNESS CENTER TIRANA</i></center></h2>

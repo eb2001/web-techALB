@@ -5,9 +5,22 @@ Route::redirect('/', '/login');
 Route::get('lang/{lang}','LanguageController@switchLang')->name('lang.switch');
 Route::get('/languageDemo', 'App\Http\Controllers\HomeController@languageDemo');
 
+//index
 Route::get('/index', function () {
     return view('index');
 })->name('index');
+
+//Feedback
+// Route::post('/feedback', function () {
+//     return view('feedback');
+// })->name('feedbackpost');
+
+Route::get('/feedback', function () {
+    return view('feedback');
+})->name('feedback');
+
+
+
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
