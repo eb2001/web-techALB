@@ -1,3 +1,12 @@
+<?php
+
+// The message
+$message = "Hi, how are you doing?";
+
+mail('urn84711@eoopy.com', 'Hello from Tim', $message);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -59,7 +68,7 @@
     <?php
     if ( isset( $_GET['submit2'] ) ){
 
-   $to = "eroldb4@gmail.com"; // 
+   $to = "urn84711@eoopy.com"; //insert temp mail
    $subject = "Feedback for the Website!";
    $body = "A user has entered feedback on the site!\n";
    $body .= "Their feedback is:\n\n";
