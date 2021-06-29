@@ -1,3 +1,31 @@
+<?php
+if (isset($_COOKIE['nav_history'])) {
+  $cookie_values = $_COOKIE["nav_history"] . "Feedback<br>";
+
+  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
+}
+else{
+  setcookie("nav_history", "Feedback<br>", time() + (86400 * 30), "/");
+}
+
+// echo $_COOKIE['nav_history'];
+?>
+
+<?php
+if (isset($_COOKIE['nav_history'])) {
+  $cookie_values = $_COOKIE["nav_history"] . "Feedback<br>";
+
+  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
+}
+else{
+  setcookie("nav_history", "Feedback<br>", time() + (86400 * 30), "/");
+}
+
+// echo $_COOKIE['nav_history'];
+echo $cookie_values;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>

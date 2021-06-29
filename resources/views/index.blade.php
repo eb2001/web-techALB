@@ -1,3 +1,29 @@
+<?php
+if (isset($_COOKIE['nav_history'])) {
+  $cookie_values = $_COOKIE["nav_history"] . "Home<br>";
+
+  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
+}
+else{
+  setcookie("nav_history", "Home<br>", time() + (86400 * 30), "/");
+}
+
+// echo $_COOKIE['nav_history'];
+?>
+<?php
+if (isset($_COOKIE['nav_history'])) {
+  $cookie_values = $_COOKIE["nav_history"] . "Home<br>";
+
+  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
+}
+else{
+  setcookie("nav_history", "Home<br>", time() + (86400 * 30), "/");
+}
+
+// echo $_COOKIE['nav_history'];
+echo $cookie_values;
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -85,7 +111,7 @@
         <div class="box">
             <div class="box-left">
                 <h2>{{__('messages.helpus')}}</h2>
-                <p>B{{__('messages.bringfriend')}}</p>
+                <p>{{__('messages.bringfriend')}}</p>
             </div>
             <div class="box-right">
                 <img src="{{asset('homepage/mesim2.jpeg')}}" height="250" alt="teaching">
@@ -123,6 +149,13 @@
         </div>
     </center>
 
+</section>
+<hr>
+
+<section>
+<center>
+  1
+<center>
 </section>
 <footer>
     <h2 class="pnl"><center><i>LOREM WELLNESS CENTER TIRANA</i></center></h2>
