@@ -1,12 +1,3 @@
-<?php
-
-// The message
-$message = "Hi, how are you doing?";
-
-mail('urn84711@eoopy.com', 'Hello from Tim', $message);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -26,6 +17,10 @@ mail('urn84711@eoopy.com', 'Hello from Tim', $message);
         @if (Auth::check())
             <li><a href="{{ route('login')}}">{{__('messages.personalinfo')}}</a></li>
         @endif
+
+        <li>
+          <a href="{{ route('feedback')}}">Feedback</a>
+        </li>
 
         <li class="nav-item dropdown">
             <span class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -79,7 +74,7 @@ mail('urn84711@eoopy.com', 'Hello from Tim', $message);
    else {
    ?>
   <form action="feedback" method="GET">
-  <h2>1Please Send us your Feedback</h2>
+  <h2>Please send us your feedback</h2>
   <textarea cols=35 rows=15 name="feedback">
   </textarea>
   <br>
