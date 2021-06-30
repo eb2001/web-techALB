@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<<?php
+$cookie_values = $_COOKIE["nav_history"] . "<li>Log In&nbsp</li>";
+  setcookie("nav_history", "<li>Log-In&#9654&nbsp</li>", time() + (86400 * 30), "/");
+ ?>
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
     <div class="container justify-content-center">
         <div class="navbar-wrapper text-center">

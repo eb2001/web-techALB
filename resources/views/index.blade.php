@@ -1,31 +1,22 @@
-<?php
-if (isset($_COOKIE['nav_history'])) {
-  $cookie_values = $_COOKIE["nav_history"] . "Home<br>";
-
-  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
-}
-else{
-  setcookie("nav_history", "Home<br>", time() + (86400 * 30), "/");
-}
-
-// echo $_COOKIE['nav_history'];
-?>
-<?php
-if (isset($_COOKIE['nav_history'])) {
-  $cookie_values = $_COOKIE["nav_history"] . "Home<br>";
-
-  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
-}
-else{
-  setcookie("nav_history", "Home<br>", time() + (86400 * 30), "/");
-}
-
-// echo $_COOKIE['nav_history'];
-echo $cookie_values;
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<ul class="track">
+<?php
+if (isset($_COOKIE['nav_history'])) {
+  $cookie_values = $_COOKIE["nav_history"] . "<li>Home&#9654&nbsp</li>";
+
+  setcookie("nav_history", $cookie_values, time() + (86400 * 30), "/");
+}
+else{
+  echo "Home&#9654&nbsp";
+  setcookie("nav_history", "<li>Home&#9654&nbsp</li>", time() + (86400 * 30), "/");
+};
+if (strlen($cookie_values) > 150){
+  setcookie("nav_history", "<li>Home&#9654&nbsp</li>", time() + (86400 * 30), "/");
+}
+echo $cookie_values ?? '';
+?>
+</ul>
 <head>
     <meta charset="utf-8">
     <title>Lorem Wellness Center</title>
@@ -49,11 +40,11 @@ echo $cookie_values;
           <a href="{{ route('feedback')}}">Feedback</a>
         </li>
 
-        <li class="nav-item dropdown">
-            <span class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li>
+            <span>
               @foreach (Config::get('languages') as $lang => $language)
                 @if ($lang != App::getLocale())
-                  <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                  <a href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
                 @endif
               @endforeach
             </span>
