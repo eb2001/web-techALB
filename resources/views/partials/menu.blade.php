@@ -77,6 +77,16 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('index') }}" class="nav-link">
+                    <p>
+                        <i class="fas fa-home">
+
+                        </i>
+                        <span>{{ trans('Home') }}</span>
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-menu -->
